@@ -1,0 +1,358 @@
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+  }
+  
+  body{
+    font-family:'Poppins',sans-serif;
+    overflow-x:hidden;
+    background:linear-gradient(-45deg,#120b0b,#2b0f14,#3b1320,#1b0f0f);
+    background-size:400% 400%;
+    animation:bgMove 15s ease infinite;
+    color:white;
+  }
+  
+  /* Background Animation */
+  
+  @keyframes bgMove{
+    0%{background-position:0% 50%;}
+    50%{background-position:100% 50%;}
+    100%{background-position:0% 50%;}
+  }
+  
+  /* Loader */
+  
+  #loader{
+    position:fixed;
+    width:100%;
+    height:100%;
+    background:black;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    z-index:9999;
+    animation:fadeOut 3s forwards 3s;
+  }
+  
+  .glow-text{
+    font-size:4rem;
+    color:#ffd700;
+    text-shadow:
+      0 0 10px #fff,
+      0 0 20px gold,
+      0 0 40px gold;
+    animation:pulse 2s infinite;
+  }
+  
+  @keyframes pulse{
+    0%,100%{transform:scale(1);}
+    50%{transform:scale(1.08);}
+  }
+  
+  @keyframes fadeOut{
+    to{
+      opacity:0;
+      visibility:hidden;
+    }
+  }
+  
+  /* Music Button */
+  
+  #musicBtn{
+    position:fixed;
+    top:20px;
+    right:20px;
+    z-index:1000;
+    padding:12px 20px;
+    border:none;
+    border-radius:50px;
+    background:rgba(255,255,255,0.15);
+    backdrop-filter:blur(10px);
+    color:white;
+    cursor:pointer;
+    transition:0.3s;
+  }
+  
+  #musicBtn:hover{
+    transform:scale(1.08);
+    background:rgba(255,255,255,0.25);
+  }
+  
+  /* Hero */
+  
+  .hero{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    position:relative;
+    overflow:hidden;
+  }
+  
+  .hero-content{
+    z-index:2;
+    padding:20px;
+  }
+  
+  .main-title{
+    font-family:'Great Vibes',cursive;
+    font-size:6rem;
+    color:#ffe6b7;
+    text-shadow:0 0 20px gold;
+    animation:fadeInUp 2s ease;
+  }
+  
+  .typing-text{
+    margin-top:20px;
+    font-size:2rem;
+    color:#ffdede;
+  }
+  
+  .subtitle{
+    margin-top:20px;
+    font-size:1.4rem;
+    line-height:2;
+    color:#fff0f0;
+  }
+  
+  @keyframes fadeInUp{
+    from{
+      opacity:0;
+      transform:translateY(50px);
+    }
+    to{
+      opacity:1;
+      transform:translateY(0);
+    }
+  }
+  
+  /* Balloons */
+  
+  .balloons span{
+    position:absolute;
+    font-size:3rem;
+    animation:floatBalloon 12s linear infinite;
+  }
+  
+  .balloons span:nth-child(1){
+    left:10%;
+    animation-delay:0s;
+  }
+  
+  .balloons span:nth-child(2){
+    left:30%;
+    animation-delay:3s;
+  }
+  
+  .balloons span:nth-child(3){
+    left:60%;
+    animation-delay:5s;
+  }
+  
+  .balloons span:nth-child(4){
+    left:85%;
+    animation-delay:8s;
+  }
+  
+  @keyframes floatBalloon{
+    from{
+      bottom:-100px;
+    }
+    to{
+      bottom:110%;
+    }
+  }
+  
+  /* Cake */
+  
+  .cake-section{
+    padding:120px 20px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+  }
+  
+  .cake-container{
+    perspective:1000px;
+  }
+  
+  .cake{
+    position:relative;
+    width:320px;
+    transform-style:preserve-3d;
+    transition:0.5s;
+  }
+  
+  .cake:hover{
+    transform:rotateY(8deg) scale(1.05);
+  }
+  
+  .cake-layer{
+    height:80px;
+    border-radius:20px;
+    margin:10px 0;
+    box-shadow:0 10px 30px rgba(0,0,0,0.3);
+  }
+  
+  .layer1{
+    background:#ffcad4;
+  }
+  
+  .layer2{
+    background:#f4acb7;
+  }
+  
+  .layer3{
+    background:#9d8189;
+  }
+  
+  .cake-top{
+    position:absolute;
+    top:-70px;
+    width:100%;
+    text-align:center;
+    font-size:4rem;
+    color:gold;
+    text-shadow:0 0 20px gold;
+  }
+  
+  /* Candles */
+  
+  .candles{
+    position:absolute;
+    top:-30px;
+    width:100%;
+    display:flex;
+    justify-content:center;
+    gap:80px;
+  }
+  
+  .candle{
+    width:14px;
+    height:60px;
+    background:white;
+    border-radius:10px;
+    position:relative;
+  }
+  
+  .flame{
+    width:18px;
+    height:18px;
+    background:gold;
+    border-radius:50%;
+    position:absolute;
+    top:-18px;
+    left:-2px;
+    animation:flicker 0.2s infinite alternate;
+    box-shadow:0 0 20px orange;
+  }
+  
+  @keyframes flicker{
+    from{transform:scale(1);}
+    to{transform:scale(1.15);}
+  }
+  
+  /* Message Card */
+  
+  .message-section{
+    padding:120px 20px;
+    display:flex;
+    justify-content:center;
+  }
+  
+  .message-card{
+    max-width:700px;
+    padding:50px;
+    border-radius:30px;
+    background:rgba(255,255,255,0.12);
+    backdrop-filter:blur(15px);
+    box-shadow:0 8px 40px rgba(255,255,255,0.15);
+    text-align:center;
+    animation:fadeInUp 2s ease;
+  }
+  
+  .message-card h2{
+    font-family:'Great Vibes',cursive;
+    font-size:4rem;
+    margin-bottom:30px;
+    color:#ffd7ba;
+  }
+  
+  .message-card p{
+    font-size:1.3rem;
+    line-height:2.2;
+  }
+  
+  /* Final Section */
+  
+  .final-section{
+    min-height:100vh;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:40px;
+    position:relative;
+  }
+  
+  .final-title{
+    font-family:'Great Vibes',cursive;
+    font-size:6rem;
+    color:gold;
+    text-shadow:
+      0 0 10px white,
+      0 0 20px gold,
+      0 0 50px gold;
+    animation:pulse 3s infinite;
+  }
+  
+  /* Hearts */
+  
+  .heart{
+    position:fixed;
+    color:#ff7aa2;
+    animation:floatUp 4s linear forwards;
+    pointer-events:none;
+  }
+  
+  @keyframes floatUp{
+    to{
+      transform:translateY(-100vh);
+      opacity:0;
+    }
+  }
+  
+  /* Fireworks Canvas */
+  
+  #fireworks{
+    position:fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height:100%;
+    pointer-events:none;
+  }
+  
+  /* Responsive */
+  
+  @media(max-width:768px){
+  
+    .main-title{
+      font-size:3.5rem;
+    }
+  
+    .final-title{
+      font-size:3.2rem;
+    }
+  
+    .message-card{
+      padding:30px;
+    }
+  
+    .message-card h2{
+      font-size:3rem;
+    }
+  
+  }

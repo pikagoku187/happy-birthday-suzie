@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Happy Birthday Suzie</title>
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Loading Screen -->
+  <div id="loader">
+    <h1 class="glow-text">Happy Birthday Suzie</h1>
+  </div>
+
+  <!-- Background Music -->
+  <audio id="bgMusic" loop>
+    <source src="music.mp3" type="audio/mpeg">
+  </audio>
+
+  <button id="musicBtn">🎵 Play Music</button>
+
+  <!-- Floating Elements -->
+  <div class="hearts-container"></div>
+  <div class="sparkles"></div>
+  <div class="confetti-container"></div>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <div class="overlay"></div>
+
+    <div class="hero-content">
+      <h1 class="main-title">Happy Birthday Suzie</h1>
+
+      <h2 class="typing-text"></h2>
+
+      <p class="subtitle">
+        Love you so much ❤️ <br>
+        Wish you all the best
+      </p>
+    </div>
+
+    <!-- Balloons -->
+    <div class="balloons">
+      <span>🎈</span>
+      <span>🎈</span>
+      <span>🎈</span>
+      <span>🎈</span>
+    </div>
+
+  </section>
+
+  <!-- Cake Section -->
+  <section class="cake-section">
+
+    <div class="cake-container">
+
+      <div class="cake">
+
+        <div class="candles">
+          <div class="candle">
+            <div class="flame"></div>
+          </div>
+
+          <div class="candle">
+            <div class="flame"></div>
+          </div>
+        </div>
+
+        <div class="cake-top">65</div>
+
+        <div class="cake-layer layer1"></div>
+        <div class="cake-layer layer2"></div>
+        <div class="cake-layer layer3"></div>
+
+      </div>
+
+    </div>
+
+  </section>
+
+  <!-- Romantic Message -->
+  <section class="message-section">
+
+    <div class="message-card">
+      <h2>For Suzie ❤️</h2>
+
+      <p>
+        Happy Birthday Suzie,<br><br>
+
+        Love you so much.<br><br>
+
+        Thank you for bringing warmth and happiness.<br><br>
+
+        Wish you all the best, today and forever.
+      </p>
+
+    </div>
+
+  </section>
+
+  <!-- Final Celebration -->
+  <section class="final-section">
+
+    <h1 class="final-title">
+      Happy 65th Birthday Suzie
+    </h1>
+
+    <div class="final-hearts"></div>
+
+  </section>
+
+  <canvas id="fireworks"></canvas>
+
+  <script src="script.js"></script>
+</body>
+</html>
