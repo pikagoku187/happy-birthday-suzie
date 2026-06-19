@@ -1,12 +1,22 @@
-// Loading screen
+```javascript
+// ===============================
+// Loading Screen
+// ===============================
 
 window.addEventListener("load", () => {
+
     setTimeout(() => {
+
         document.getElementById("loader").style.display = "none";
+
     }, 6000);
+
 });
 
-// Typing effect
+
+// ===============================
+// Typing Effect
+// ===============================
 
 const text = "A magical birthday surprise just for you...";
 const typingElement = document.querySelector(".typing-text");
@@ -14,33 +24,75 @@ const typingElement = document.querySelector(".typing-text");
 let i = 0;
 
 function typingEffect() {
+
     if (i < text.length) {
+
         typingElement.innerHTML += text.charAt(i);
+
         i++;
+
         setTimeout(typingEffect, 80);
+
     }
+
 }
 
 typingEffect();
 
-// Music Button
+
+// ===============================
+// Music System
+// ===============================
 
 const music = document.getElementById("bgMusic");
 const musicBtn = document.getElementById("musicBtn");
 
+
+// Auto play after first click
+
+document.addEventListener("click", () => {
+
+    music.play()
+        .then(() => {
+
+            console.log("Music started");
+
+            musicBtn.innerHTML = "⏸ Pause Music";
+
+        })
+        .catch((err) => {
+
+            console.log(err);
+
+        });
+
+}, { once: true });
+
+
+// Manual play / pause button
+
 musicBtn.addEventListener("click", () => {
 
     if (music.paused) {
+
         music.play();
+
         musicBtn.innerHTML = "⏸ Pause Music";
+
     } else {
+
         music.pause();
+
         musicBtn.innerHTML = "🎵 Play Music";
+
     }
 
 });
 
-// Floating hearts
+
+// ===============================
+// Floating Hearts
+// ===============================
 
 function createHeart(x, y) {
 
@@ -58,24 +110,17 @@ function createHeart(x, y) {
     document.body.appendChild(heart);
 
     setTimeout(() => {
+
         heart.remove();
+
     }, 4000);
 
 }
 
-// Click effects
 
-document.addEventListener("click", (e) => {
-
-    for (let i = 0; i < 12; i++) {
-        createHeart(e.clientX, e.clientY);
-    }
-
-    createFirework(e.clientX, e.clientY);
-
-});
-
-// Fireworks
+// ===============================
+// Fireworks Canvas
+// ===============================
 
 const canvas = document.getElementById("fireworks");
 const ctx = canvas.getContext("2d");
@@ -84,6 +129,11 @@ canvas.width = window.innerWidth;
 canvas.height = window.innerHeight;
 
 let particles = [];
+
+
+// ===============================
+// Particle Class
+// ===============================
 
 class Particle {
 
@@ -100,6 +150,7 @@ class Particle {
         this.speedY = (Math.random() - 0.5) * 8;
 
         this.alpha = 1;
+
     }
 
     update() {
@@ -108,6 +159,7 @@ class Particle {
         this.y += this.speedY;
 
         this.alpha -= 0.01;
+
     }
 
     draw() {
@@ -130,6 +182,11 @@ class Particle {
 
 }
 
+
+// ===============================
+// Create Firework
+// ===============================
+
 function createFirework(x, y) {
 
     const colors = [
@@ -142,16 +199,23 @@ function createFirework(x, y) {
     for (let i = 0; i < 80; i++) {
 
         particles.push(
+
             new Particle(
                 x,
                 y,
                 colors[Math.floor(Math.random() * colors.length)]
             )
+
         );
 
     }
 
 }
+
+
+// ===============================
+// Animate Fireworks
+// ===============================
 
 function animateFireworks() {
 
@@ -160,10 +224,13 @@ function animateFireworks() {
     particles.forEach((particle, index) => {
 
         particle.update();
+
         particle.draw();
 
         if (particle.alpha <= 0) {
+
             particles.splice(index, 1);
+
         }
 
     });
@@ -174,18 +241,43 @@ function animateFireworks() {
 
 animateFireworks();
 
-// Auto fireworks
+
+// ===============================
+// Click Effects
+// ===============================
+
+document.addEventListener("click", (e) => {
+
+    for (let i = 0; i < 12; i++) {
+
+        createHeart(e.clientX, e.clientY);
+
+    }
+
+    createFirework(e.clientX, e.clientY);
+
+});
+
+
+// ===============================
+// Auto Fireworks
+// ===============================
 
 setInterval(() => {
 
     createFirework(
+
         Math.random() * window.innerWidth,
-        Math.random() * window.innerHeight / 2
+        Math.random() * (window.innerHeight / 2)
+
     );
 
 }, 1200);
 
-// Resize
+
+// ===============================
+// Resize Canvas
+// ===============================
 
 window.addEventListener("resize", () => {
 
@@ -193,3 +285,4 @@ window.addEventListener("resize", () => {
     canvas.height = window.innerHeight;
 
 });
+```
